@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     changeCheck(e) {
-      this.$emit('update', e)
+      this.$emit('update:modelValue', e.target.checked)
     }
   }
 }

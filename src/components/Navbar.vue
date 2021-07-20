@@ -5,7 +5,8 @@
       <li class="navbar-item" @click.prevent="$router.push('/posts')">Посты</li>
       <li class="navbar-item" @click.prevent="$router.push('/store')">Посты со store</li>
       <li class="navbar-item" @click.prevent="$router.push('/composition')">Посты с composition-api</li>
-      <li class="navbar-item" @click.prevent="$router.push('/grid')">Таблица</li>
+      <li class="navbar-item" @click.prevent="$router.push('/table')">Таблица с пользователями</li>
+      <li class="navbar-item" @click.prevent="$router.push('/grid')">Таблица с шаблоном данных</li>
       <li class="navbar-item" @click.prevent="$router.push('/about')">О приложении</li>
     </ul>
 

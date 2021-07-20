@@ -8,6 +8,7 @@ export function useGrid(limit) {
     const fetching = async () => {
         try {
             const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+
             rows.value = response.data;
         } catch (e) {
             console.log('Ошибка!')

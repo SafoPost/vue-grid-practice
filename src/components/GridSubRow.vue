@@ -26,11 +26,6 @@ export default {
       type: Boolean
     }
   },
-  // data() {
-  //   return {
-  //     isCheckedRow: false
-  //   }
-  // }
   methods: {
     updateCheck(e) {
       console.log(e.target.closest('tr'))

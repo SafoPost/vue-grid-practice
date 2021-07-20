@@ -10,18 +10,6 @@
       <th><span>Address.city</span></th>
       <th><span>--</span></th>
     </tr>
-<!--    <tbody v-for="row in rows" v-if="rows">-->
-<!--      <grid-row-->
-<!--          v-if="row.id % 4 === 1"-->
-<!--          :row="row"-->
-<!--          :key="row.id"-->
-<!--          :id="row.id"/>-->
-<!--      <grid-sub-row-->
-<!--          v-else-->
-<!--          :row="row"-->
-<!--          :key="row.id"-->
-<!--          :id="row.id"/>-->
-<!--    </tbody>-->
     <tr
       v-for="row in rows"
       :key="row.id"
@@ -29,11 +17,12 @@
       :class="{
         'grid__row': row.id % 4 === 1,
         'grid__sub-row': row.id % 4 !== 1,
-
-      }">
+      }"
+      @update="$emit('update', isCheckedRow)">
         <grid-row
             v-if="row.id % 4 === 1"
-            :row="row"/>
+            :row="row"
+            :isCheckedRow="isCheckedRow"/>
         <grid-sub-row
             v-else
             :row="row"/>
@@ -70,12 +59,9 @@ export default {
     //   console.log(this.GridSubRow)
     // },
     addClassAndSelectRow(e) {
-      console.log(this.rows.length)
-      for (let row in this.rows) {
-        // row['isCheckedRow'] = e.target.checked
-        console.log(row.value)
-      }
-      console.log(e.target.checked)
+      console.log(e)
+      this.$emit('update:isCheckedRow', e)
+      console.log(e)
     }
   },
 }

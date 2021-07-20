@@ -18,7 +18,6 @@
 
 <script>
 export default {
-  name: 'grid-row',
   props: {
     row: {
       type: Object,
@@ -30,13 +29,15 @@ export default {
   },
   methods: {
     checkedAllRows(e) {
+      console.log(e.target.checked)
       console.log(e.target.closest('tr'))
+      // this.$emit('update', e)
       this.$emit('update:isCheckedRow', e.target.checked)
-      if (e.target.checked) {
-        e.target.closest('tr').classList.add('checked-row')
-      } else {
-        e.target.closest('tr').classList.remove('checked-row')
-      }
+      // if (e.target.checked) {
+      //   e.target.closest('tr').classList.add('checked-row')
+      // } else {
+      //   e.target.closest('tr').classList.remove('checked-row')
+      // }
     }
   }
 }
