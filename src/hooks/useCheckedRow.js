@@ -1,8 +1,10 @@
 import {ref, computed} from "vue";
 
-export function useCheckedRow() {
+export function useToggleCheckRow() {
     const isCheckedRow = ref(false)
 
+
+    console.log()
     const checkedRow = computed(() => isCheckedRow.value = true )
     const unCheckedRow = computed(() => isCheckedRow.value = false )
 

@@ -1,7 +1,6 @@
 <template>
   <th
       v-for="column in columns"
-      :colspan="column.colspan"
   >
     <span>{{ column.value }}</span>
   </th>

@@ -1,8 +1,9 @@
 <template>
   <label class="check-label">
     <input
+        :id="forId"
         v-model="modelValue"
-        @change="changeCheck"
+        @change="$emit('update', modelValue, forId)"
         class="check-box"
         type="checkbox">
     <slot></slot>
@@ -15,11 +16,15 @@ export default {
   props: {
     modelValue: {
       type: Boolean
+    },
+    forId: {
+      type: String
     }
   },
   methods: {
     changeCheck(e) {
-      this.$emit('update:modelValue', e.target.checked)
+      // console.log(e.target.closest('tr').id)
+      // this.$emit('update', e.target.checked, e.target.id)
     }
   }
 }

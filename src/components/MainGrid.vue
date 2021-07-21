@@ -37,7 +37,7 @@
 <script>
 import GridRow from "./GridRow";
 import GridSubRow from "./GridSubRow";
-import {useCheckedRow} from "../hooks/useCheckedRow";
+import {useToggleCheckRow} from "../hooks/useCheckedRow";
 
 export default {
   components: {

@@ -40,6 +40,7 @@
     </div>
     <data-grid
       :data="data"
+
       v-if="!isDataLoading"
     />
     <div v-else>Идет загрузка данных...</div>
@@ -78,15 +79,13 @@ export default {
     }
   },
   methods: {
-    consLog() {
-      console.log(this)
-    }
+
   },
   setup(props) {
-    const { data, isDataLoading } = useDataGrid()
+    const { data, withCheck, withEdit, isDataLoading } = useDataGrid(true)
 
     return {
-      data, isDataLoading
+      data, withCheck, withEdit, isDataLoading
     }
   }
 }

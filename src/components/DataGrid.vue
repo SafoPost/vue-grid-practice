@@ -4,24 +4,29 @@
       <data-columns :columns="arrColumns"/>
     </tr>
     <tr
-        v-for="row in arrRows"
-        class="grid__row"
+        v-for="row in arrRowsWithCheck"
+        :id="row.id"
+        :key="row.id"
+        :data-parent-id="row.parentId"
         :class="[
           row.type,
           {'checked-row': row.checked}
         ]"
-        :checkedRow="row.checked"
     >
-      <data-rows :row="row"/>
+      <data-rows
+          :row="row"
+          :checkedRow="row.checked"
+          @toggle="toggleRowCheck"
+      />
     </tr>
   </table>
-  <button @click="consLog">console.log</button>
 </template>
 
 <script>
 import DataColumns from "./DataColumns";
 import DataRows from "./DataRows";
 import {useProcessData} from "../hooks/useProcessData";
+import {useToggleCheckRow} from "../hooks/useToggleCheckRow";
 
 export default {
   components: {
@@ -33,20 +38,18 @@ export default {
       required: true
     }
   },
-
   methods: {
-    consLog() {
-      console.log()
-    },
-    changeCheckedRow(value) {
-      console.log('CheckedRow was changed')
+    toggleRowCheck(val, id) {
+      this.rowId = id
+      this.checkVal = val
     }
   },
   setup(props) {
-    const { arrColumns, arrRows, processedData } = useProcessData(props.data)
+    const { arrColumns, arrRows, processedData } = useProcessData(props.data, true)
+    const { checkVal, rowId, arrRowsWithCheck } = useToggleCheckRow(arrRows)
 
     return {
-      arrColumns, arrRows, processedData
+      arrColumns, arrRows, processedData, checkVal, rowId, arrRowsWithCheck
     }
   }
 }
@@ -123,7 +126,7 @@ export default {
   background-color: #fbf3f3;
 }
 
-.row.checked-group-rows td {
+.row.checked-row td {
   background-color: #f1e6e6;
 }
 .sub-row.checked-row td:not(td:first-child) {
