@@ -82,10 +82,10 @@ export default {
 
   },
   setup(props) {
-    const { data, withCheck, withEdit, isDataLoading } = useDataGrid(true)
+    const { data, isDataLoading } = useDataGrid()
 
     return {
-      data, withCheck, withEdit, isDataLoading
+      data, isDataLoading
     }
   }
 }

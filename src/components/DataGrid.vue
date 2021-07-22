@@ -119,7 +119,8 @@ export default {
   border-top: none;
   border-bottom: none;
 }
-.sub-row td:nth-child(n+3) {
+.sub-row td:nth-child(n+3),
+.sub-row td[colspan] {
   text-align: left;
 }
 .sub-row.checked-row td:not(td:first-child) {

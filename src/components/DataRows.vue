@@ -11,11 +11,13 @@
       :forId="row.id"
       @update="changedCheck"
     />
-    <span v-else><b v-if="cell.title">{{ cell.title }}</b>{{ cell.value }}</span>
+    <span v-else ><b v-if="cell.title">{{ cell.title }}</b>{{ cell.value }}</span>
   </td>
 </template>
 
 <script>
+import {onMounted, ref} from "vue";
+
 export default {
   props: {
     row: {
@@ -29,8 +31,15 @@ export default {
   methods: {
     changedCheck(value, id) {
       this.$emit('toggle', value, id);
+    },
+    setSpanWidth() {
+
     }
-  }
+  },
+  setup(props) {
+
+  },
+
 }
 </script>
 
