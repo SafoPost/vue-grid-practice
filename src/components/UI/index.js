@@ -6,6 +6,7 @@ import OptSelect from "./OptSelect";
 import InputCheckbox from "./InputCheckbox";
 import GridSelect from "./GridSelect";
 import GridYearInput from "./GridYearInput";
+import GridRadioFilter from "./GridRadioFilter";
 
 export default [
     ButtonPrimary,
@@ -15,5 +16,6 @@ export default [
     PopupWindow,
     OptSelect,
     GridSelect,
-    GridYearInput
+    GridYearInput,
+    GridRadioFilter
 ]

@@ -2,21 +2,23 @@
   <div class="container">
     <h1>Таблица с данными из шаблона</h1>
     <div class="monitor-panel">
-<!--      <div class="panel-group">-->
-<!--        <input-checkbox-->
-<!--            id="fast-filter-1">-->
-<!--          Фасовка-->
-<!--        </input-checkbox>-->
-<!--        <input-checkbox-->
-<!--            id="fast-filter-2">-->
-<!--          Налив-->
-<!--        </input-checkbox>-->
-
+      <div class="panel-group">
+        <grid-radio-filter
+            :v-model="filterPack"
+            :forId="fastFilter1"
+            :filterName="filterPackName">
+          Фасовка
+        </grid-radio-filter>
+        <grid-radio-filter
+            :v-model="filterPack"
+            :forId="fastFilter2"
+            :filterName="filterPackName">
+          Налив
+        </grid-radio-filter>
 <!--        <grid-year-input-->
 <!--          v-model="filterYear">-->
 <!--          Год-->
 <!--        </grid-year-input>-->
-
 <!--        <grid-select-->
 <!--            v-model="filterMonth"-->
 <!--            :options="filterOptionsMonth">-->
@@ -27,16 +29,12 @@
 <!--            :options="sortOptionsWorkType">-->
 <!--          Тип работы-->
 <!--        </grid-select>-->
+      </div>
+      <button-primary>Обновить</button-primary>
 
-<!--      </div>-->
-<!--      <button-secondary-->
-<!--          @click="consLog">-->
-<!--        Обновить-->
-<!--      </button-secondary>-->
 <!--      <input-text-->
 <!--          v-model="searchQueryRows"-->
-<!--          placeholder="Поиск..."-->
-<!--      />-->
+<!--          placeholder="Поиск..."/>-->
     </div>
     <data-grid
       :data="data"
@@ -50,13 +48,19 @@
 <script>
 import DataGrid from "../components/DataGrid";
 import {useDataGrid} from "../hooks/useDataGrid";
+import ButtonPrimary from "../components/UI/ButtonPrimary";
 
 export default {
   components: {
+    ButtonPrimary,
     DataGrid
   },
   data() {
     return {
+      filterPack: 'filterPack',
+      fastFilter1: 'fastFilter_1',
+      fastFilter2: 'fastFilter_2',
+      filterPackName: 'filter-pack-type',
       filterOptionsMonth: [
         { name: '01', value: '(01) Январь' },
         { name: '02', value: '(02) Февраль' },
@@ -72,9 +76,9 @@ export default {
         { name: '12', value: '(12) Декабрь' }
       ],
       sortOptionsWorkType: [
-        { value: 'month', name: 'Месячное планирование' },
-        { value: 'quarter', name: 'Квартальное планирование' },
-        { value: 'year', name: 'Годовое планирование' }
+        { name: 'month', value: 'Месячное планирование' },
+        { name: 'quarter', value: 'Квартальное планирование' },
+        { name: 'year', value: 'Годовое планирование' }
       ]
     }
   },

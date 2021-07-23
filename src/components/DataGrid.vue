@@ -1,7 +1,10 @@
 <template>
   <table class="grid">
     <tr class="columns">
-      <data-columns :columns="arrColumns"/>
+      <data-columns
+          :columns="arrColumns"
+          :sortValue="sortQuery"
+          @update="requestSortedRows"/>
     </tr>
     <tr
         v-for="row in arrRowsWithCheck"
@@ -25,8 +28,11 @@
 <script>
 import DataColumns from "./DataColumns";
 import DataRows from "./DataRows";
-import {useProcessData} from "../hooks/useProcessData";
+import {useDataColumns} from "../hooks/useDataColumns";
+import {useDataRows} from "../hooks/useDataRows";
 import {useToggleCheckRow} from "../hooks/useToggleCheckRow";
+import {useSortByColumns} from "../hooks/useSortByColumns";
+import {watch} from "vue";
 
 export default {
   components: {
@@ -45,11 +51,16 @@ export default {
     }
   },
   setup(props) {
-    const { arrColumns, arrRows, processedData } = useProcessData(props.data, true)
+    const { dataColumns, arrColumns, withCheck } = useDataColumns(props.data.columns, true)
+    const { sortQuery, sortedRows, requestSortedRows } = useSortByColumns(props.data.rows)
+    const { arrRows } = useDataRows(sortedRows, dataColumns, withCheck)
     const { checkVal, rowId, arrRowsWithCheck } = useToggleCheckRow(arrRows)
 
     return {
-      arrColumns, arrRows, processedData, checkVal, rowId, arrRowsWithCheck
+      dataColumns, arrColumns, withCheck,
+      sortQuery, sortedRows, requestSortedRows,
+      arrRows,
+      checkVal, rowId, arrRowsWithCheck
     }
   }
 }
@@ -72,6 +83,11 @@ export default {
   height: 80px;
   padding-bottom: 10px;
 }
+.columns th.is-sorting {
+  cursor: pointer;
+}
+
+
 .columns th span {
   width: 100%;
   height: 100%;
@@ -81,8 +97,8 @@ export default {
   background-color: #e0e0e0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-
 }
+
 .row td:first-child {
   padding: 0 15px;
 }
@@ -119,7 +135,7 @@ export default {
   border-top: none;
   border-bottom: none;
 }
-.sub-row td:nth-child(n+3),
+
 .sub-row td[colspan] {
   text-align: left;
 }

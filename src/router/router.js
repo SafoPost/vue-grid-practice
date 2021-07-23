@@ -7,6 +7,7 @@ import PostPageWidthStore from "../pages/PostPageWidthStore";
 import PostPageCompositionApi from "../pages/PostPageCompositionApi";
 import GridPage from "../pages/GridPage";
 import DataGridPage from "../pages/DataGridPage";
+import Data from "./../../data.json";
 
 const routes = [
     {
@@ -40,6 +41,10 @@ const routes = [
     {
         path: '/grid',
         component: DataGridPage
+    },
+    {
+        path: '/data',
+        component: Data
     }
 ]
 

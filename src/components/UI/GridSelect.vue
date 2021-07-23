@@ -8,9 +8,9 @@
         class="grid-select">
       <option
           v-for="option in options"
-          :key="option.value"
+          :key="option.name"
           :value="option.value">
-        {{ option.name }}
+        {{ option.value }}
       </option>
     </select>
   </label>
@@ -38,7 +38,6 @@ export default {
 
 <style scoped>
 .grid-select {
-  /*min-width: 100px;*/
   height: 30px;
   margin-left: 10px;
   padding: 0 5px;

@@ -1,8 +1,9 @@
 <template>
   <th
       v-for="column in columns"
+      :class="{'is-sorting': column.isSorting}"
   >
-    <span>{{ column.value }}</span>
+    <span @click="$emit('update:sortValue', column.id)">{{ column.value }}</span>
   </th>
 </template>
 
@@ -12,6 +13,9 @@ export default {
     columns: {
       type: Array,
       required: true
+    },
+    sortValue: {
+      type: String
     }
   },
   methods: {}
