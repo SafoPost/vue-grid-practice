@@ -42,18 +42,46 @@
       v-if="!isDataLoading"
     />
     <div v-else>Идет загрузка данных...</div>
+    <div class="monitor-panel">
+      <div class="panel-group">
+        <div class="grid-values">
+          С {{ firstRow }} по {{ lastRow }} из {{ totalRows }} (найдено {{ totalRows }})
+        </div>
+      </div>
+      <div class="panel-group">
+        <grid-select
+            v-model="limit"
+            :options="optionsLimit"
+            @update="changeLimit">
+          Отображать
+        </grid-select>
+        <v-pagination
+            v-model="page"
+            :pages="totalPages"
+            :range-size="1"
+            active-color="#5F9EA0"
+            @update:modelValue="changePage"
+            :hideFirstButton="true"
+            :hideLastButton="true"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import DataGrid from "../components/DataGrid";
 import {useDataGrid} from "../hooks/useDataGrid";
+import {usePaginationGrid} from "../hooks/usePaginationGrid";
 import ButtonPrimary from "../components/UI/ButtonPrimary";
+import VPagination from "@hennge/vue3-pagination";
+import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
 export default {
   components: {
     ButtonPrimary,
-    DataGrid
+    DataGrid,
+    VPagination
   },
   data() {
     return {
@@ -79,18 +107,45 @@ export default {
         { name: 'month', value: 'Месячное планирование' },
         { name: 'quarter', value: 'Квартальное планирование' },
         { name: 'year', value: 'Годовое планирование' }
+      ],
+      optionsLimit: [
+        { name: 3, value: '3' },
+        { name: 5, value: '5' },
+        { name: 10, value: '10' },
+        { name: 15, value: '15' },
+        { name: 20, value: '20' }
       ]
     }
   },
   methods: {
-
+    changePage(currentPage) {
+      console.log('currentPage', currentPage)
+      this.page = currentPage
+    },
+    changeLimit(currentLimit) {
+      console.log('currentLimit', currentLimit)
+      this.limit = currentLimit
+    }
   },
   setup(props) {
     const { data, isDataLoading } = useDataGrid()
+    const { currentRows, currentData, totalRows, totalPages, firstRow, lastRow, limit, page } = usePaginationGrid(data)
 
     return {
-      data, isDataLoading
+      data, isDataLoading,
+      currentRows, currentData,
+      totalRows, totalPages,
+      firstRow, lastRow,
+      limit, page
     }
+  },
+  watch: {
+    // page() {
+    //   this.fetching
+    // },
+    // limit() {
+    //   this.fetching
+    // }
   }
 }
 </script>

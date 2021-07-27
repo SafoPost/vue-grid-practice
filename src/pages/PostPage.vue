@@ -27,7 +27,7 @@
         v-if="!isPostLoading"
     />
     <div v-else>Идет загрузка постов...</div>
-    <div v-intersection="loadMorePosts" class="observer"></div>
+<!--    <div v-intersection="loadMorePosts" class="observer"></div>-->
     <!--<div>
       <button @click="addLike">like</button >
       <button @click="addDislike">dislike</button >
@@ -36,13 +36,23 @@
       <div>Нравится: {{ likes }}</div>
       <div>Ненравится: {{ dislikes }}</div>
     </div>-->
-    <!--<div class="monitor-panel">
-      <pagination
-          :page="page"
-          :total-pages="totalPages"
-          @update="changePage"
-      />
-    </div>-->
+    <div class="monitor-panel">
+      <div class="panel-group">
+
+      </div>
+      <div class="panel-group">
+        <grid-select
+            v-model="limit"
+            :options="optionsLimit">
+          Отображать
+        </grid-select>
+        <pagination
+            :page="page"
+            :total-pages="totalPages"
+            @update="changePage"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -74,6 +84,13 @@ export default {
         { value: 'title', name: 'По названию' },
         { value: 'body', name: 'По содержанию' },
         { value: 'id', name: 'По идентификатору' },
+      ],
+      optionsLimit: [
+        { name: 3, value: '3' },
+        { name: 5, value: '5' },
+        { name: 10, value: '10' },
+        { name: 15, value: '15' },
+        { name: 20, value: '20' }
       ]
     }
   },
@@ -144,9 +161,12 @@ export default {
     }
   },
   watch: {
-    // page() {
-    //   this.fetchPosts();
-    // }
+    page() {
+      this.fetchPosts();
+    },
+    limit() {
+      this.fetchPosts();
+    }
   }
 
 }
@@ -163,6 +183,12 @@ export default {
 .monitor-panel .input-text {
   flex: 1 1 100%;
   margin: 0 20px;
+}
+.panel-group {
+  display: flex;
+}
+.panel-group .pagination {
+  margin-left: 30px;
 }
 .observer {
   width: 100%;

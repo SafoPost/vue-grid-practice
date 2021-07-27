@@ -35,14 +35,22 @@ export default {
   align-items: center;
 }
 .page {
-  padding: 0 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
   cursor: pointer;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
 }
 .page:hover {
-  text-decoration: underline;
+  border: 2px solid cadetblue;
 }
 .current-page {
   color: cadetblue;
+  background-color: rgba(162, 205, 206, 0.3);
 }
 </style>

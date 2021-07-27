@@ -3,69 +3,50 @@
     {
       "id": "factory",
       "value": "Завод",
-      "type": "string",
+      "isSorting": true,
       "sort": 200
     },
     {
       "id": "sales-area",
       "value": "Район сбыта",
-      "type": "string",
+      "isSorting": true,
       "sort": 300
     },
     {
       "id": "conditions",
       "value": "Условия поставки",
-      "type": "string",
+      "isSorting": true,
       "sort": 400
     },
     {
       "id": "transition",
       "value": "Станция перехода",
-      "type": "string",
+      "isSorting": true,
       "sort": 500
     },
     {
       "id": "contract",
       "value": "Контракт",
-      "type": "string",
+      "isSorting": true,
       "sort": 600
     },
     {
       "id": "consignee",
       "value": "Грузополучатель",
-      "type": "string",
+      "isSorting": true,
       "sort": 700
     },
     {
       "id": "route",
       "value": "Маршрут",
-      "type": "string",
+      "isSorting": true,
       "sort": 800
-    }
-  ],
-  "columnsSubRow": [
-    {
-      "id": "product",
-      "type": "grow"
-    },
-    {
-      "id": "volume",
-      "type": "shrink"
-    },
-    {
-      "id": "distributed",
-      "type": "shrink"
-    },
-    {
-      "id": "remainder",
-      "type": "shrink"
     }
   ],
   "rows": [
     {
       "id": "01",
       "type": "row",
-      "checked": false,
       "values": [
         {
           "name": "factory",
@@ -107,7 +88,6 @@
         {
           "id": "01-1",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -137,7 +117,6 @@
         {
           "id": "01-2",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -167,7 +146,6 @@
         {
           "id": "01-3",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -199,7 +177,6 @@
     {
       "id": "02",
       "type": "row",
-      "checked": false,
       "values": [
         {
           "name": "factory",
@@ -241,7 +218,6 @@
         {
           "id": "02-1",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -271,7 +247,6 @@
         {
           "id": "02-2",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -303,7 +278,6 @@
     {
       "id": "03",
       "type": "row",
-      "checked": false,
       "values": [
         {
           "name": "factory",
@@ -345,7 +319,6 @@
         {
           "id": "03-1",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -375,7 +348,6 @@
         {
           "id": "03-2",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -405,7 +377,6 @@
         {
           "id": "03-3",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -435,7 +406,6 @@
         {
           "id": "03-4",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -465,7 +435,6 @@
         {
           "id": "03-5",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -497,7 +466,6 @@
     {
       "id": "04",
       "type": "row",
-      "checked": false,
       "values": [
         {
           "name": "factory",
@@ -539,7 +507,6 @@
         {
           "id": "04-1",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -569,7 +536,6 @@
         {
           "id": "04-2",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -599,7 +565,6 @@
         {
           "id": "04-3",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -631,111 +596,6 @@
     {
       "id": "05",
       "type": "row",
-      "checked": false,
-      "values": [
-        {
-          "name": "factory",
-          "value": "ННПЗ",
-          "type": "string"
-        },
-        {
-          "name": "sales-area",
-          "value": "Дальнее зарубежье",
-          "type": "string"
-        },
-        {
-          "name": "conditions",
-          "value": "СТР",
-          "type": "string"
-        },
-        {
-          "name": "transition",
-          "value": "ст. Васильева",
-          "type": "string"
-        },
-        {
-          "name": "contract",
-          "value": "06L0027",
-          "type": "string"
-        },
-        {
-          "name": "consignee",
-          "value": "",
-          "type": "string"
-        },
-        {
-          "name": "route",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "subRows": [
-        {
-          "id": "05-1",
-          "type": "sub-row",
-          "checked": false,
-          "values": [
-            {
-              "name": "product",
-              "value": "Масло готовое, 5/40, к. 1л.",
-              "type": "string"
-            },
-            {
-              "name": "volume",
-              "title": "Объем",
-              "value": 20,
-              "type": "number"
-            },
-            {
-              "name": "distributed",
-              "title": "Распределено",
-              "value": 0,
-              "type": "number"
-            },
-            {
-              "name": "remainder",
-              "title": "Остаток",
-              "value": 20,
-              "type": "number"
-            }
-          ]
-        },
-        {
-          "id": "05-2",
-          "type": "sub-row",
-          "checked": false,
-          "values": [
-            {
-              "name": "product",
-              "value": "Масло ЛУКОЙЛ ТМ-4-12, 80485, 1-4; к.4л",
-              "type": "string"
-            },
-            {
-              "name": "volume",
-              "title": "Объем",
-              "value": 61,
-              "type": "number"
-            },
-            {
-              "name": "distributed",
-              "title": "Распределено",
-              "value": 0,
-              "type": "number"
-            },
-            {
-              "name": "remainder",
-              "title": "Остаток",
-              "value": 61,
-              "type": "number"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "06",
-      "type": "row",
-      "checked": false,
       "values": [
         {
           "name": "factory",
@@ -775,9 +635,8 @@
       ],
       "subRows": [
         {
-          "id": "06-1",
+          "id": "05-1",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -805,9 +664,8 @@
           ]
         },
         {
-          "id": "06-2",
+          "id": "05-2",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -835,9 +693,8 @@
           ]
         },
         {
-          "id": "06-3",
+          "id": "05-3",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -865,9 +722,8 @@
           ]
         },
         {
-          "id": "06-4",
+          "id": "05-4",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -895,9 +751,8 @@
           ]
         },
         {
-          "id": "06-5",
+          "id": "05-5",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -927,9 +782,297 @@
       ]
     },
     {
+      "id": "06",
+      "type": "row",
+      "values": [
+        {
+          "name": "factory",
+          "value": "ННПЗ",
+          "type": "string"
+        },
+        {
+          "name": "sales-area",
+          "value": "Дальнее зарубежье",
+          "type": "string"
+        },
+        {
+          "name": "conditions",
+          "value": "СТР",
+          "type": "string"
+        },
+        {
+          "name": "transition",
+          "value": "ст. Васильева",
+          "type": "string"
+        },
+        {
+          "name": "contract",
+          "value": "06L0027",
+          "type": "string"
+        },
+        {
+          "name": "consignee",
+          "value": "",
+          "type": "string"
+        },
+        {
+          "name": "route",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "subRows": [
+        {
+          "id": "06-1",
+          "type": "sub-row",
+          "values": [
+            {
+              "name": "product",
+              "value": "Масло готовое, 5/40, к. 1л.",
+              "type": "string"
+            },
+            {
+              "name": "volume",
+              "title": "Объем",
+              "value": 20,
+              "type": "number"
+            },
+            {
+              "name": "distributed",
+              "title": "Распределено",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "name": "remainder",
+              "title": "Остаток",
+              "value": 20,
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "id": "06-2",
+          "type": "sub-row",
+          "values": [
+            {
+              "name": "product",
+              "value": "Масло ЛУКОЙЛ ТМ-4-12, 80485, 1-4; к.4л",
+              "type": "string"
+            },
+            {
+              "name": "volume",
+              "title": "Объем",
+              "value": 61,
+              "type": "number"
+            },
+            {
+              "name": "distributed",
+              "title": "Распределено",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "name": "remainder",
+              "title": "Остаток",
+              "value": 61,
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "07",
       "type": "row",
-      "checked": false,
+      "values": [
+        {
+          "name": "factory",
+          "value": "ННПЗ",
+          "type": "string"
+        },
+        {
+          "name": "sales-area",
+          "value": "Бангладеш",
+          "type": "string"
+        },
+        {
+          "name": "conditions",
+          "value": "YYY",
+          "type": "string"
+        },
+        {
+          "name": "transition",
+          "value": "Дрогобычский НПЗ",
+          "type": "string"
+        },
+        {
+          "name": "contract",
+          "value": "06L0027",
+          "type": "string"
+        },
+        {
+          "name": "consignee",
+          "value": "",
+          "type": "string"
+        },
+        {
+          "name": "route",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "subRows": [
+        {
+          "id": "07-1",
+          "type": "sub-row",
+          "values": [
+            {
+              "name": "product",
+              "value": "Масло Л-СУПЕР, 15/440, СЕ-4/5С; к. 5л.",
+              "type": "string"
+            },
+            {
+              "name": "volume",
+              "title": "Объем",
+              "value": 20,
+              "type": "number"
+            },
+            {
+              "name": "distributed",
+              "title": "Распределено",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "name": "remainder",
+              "title": "Остаток",
+              "value": 20,
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "id": "07-2",
+          "type": "sub-row",
+          "values": [
+            {
+              "name": "product",
+              "value": "Масло ЛУКОЙЛ ТМ-4-12, 80485, 1-4; к.4л",
+              "type": "string"
+            },
+            {
+              "name": "volume",
+              "title": "Объем",
+              "value": 61,
+              "type": "number"
+            },
+            {
+              "name": "distributed",
+              "title": "Распределено",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "name": "remainder",
+              "title": "Остаток",
+              "value": 61,
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "id": "07-3",
+          "type": "sub-row",
+          "values": [
+            {
+              "name": "product",
+              "value": "Масло готовое 1040, к. 1л.",
+              "type": "string"
+            },
+            {
+              "name": "volume",
+              "title": "Объем",
+              "value": 15.3816,
+              "type": "number"
+            },
+            {
+              "name": "distributed",
+              "title": "Распределено",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "name": "remainder",
+              "title": "Остаток",
+              "value": 15.3816,
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "id": "07-4",
+          "type": "sub-row",
+          "values": [
+            {
+              "name": "product",
+              "value": "Масло готовое, 5/40, к. 1л.",
+              "type": "string"
+            },
+            {
+              "name": "volume",
+              "title": "Объем",
+              "value": 10,
+              "type": "number"
+            },
+            {
+              "name": "distributed",
+              "title": "Распределено",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "name": "remainder",
+              "title": "Остаток",
+              "value": 10,
+              "type": "number"
+            }
+          ]
+        },
+        {
+          "id": "07-5",
+          "type": "sub-row",
+          "values": [
+            {
+              "name": "product",
+              "value": "Масло готовое 1040, к. 1л.",
+              "type": "string"
+            },
+            {
+              "name": "volume",
+              "title": "Объем",
+              "value": 69.225,
+              "type": "number"
+            },
+            {
+              "name": "distributed",
+              "title": "Распределено",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "name": "remainder",
+              "title": "Остаток",
+              "value": 69.225,
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "type": "row",
       "values": [
         {
           "name": "factory",
@@ -969,9 +1112,8 @@
       ],
       "subRows": [
         {
-          "id": "07-1",
+          "id": "08-1",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -999,9 +1141,8 @@
           ]
         },
         {
-          "id": "07-2",
+          "id": "08-2",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -1029,9 +1170,8 @@
           ]
         },
         {
-          "id": "07-3",
+          "id": "08-3",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -1061,9 +1201,8 @@
       ]
     },
     {
-      "id": "08",
+      "id": "09",
       "type": "row",
-      "checked": false,
       "values": [
         {
           "name": "factory",
@@ -1103,9 +1242,8 @@
       ],
       "subRows": [
         {
-          "id": "08-1",
+          "id": "09-1",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -1133,9 +1271,8 @@
           ]
         },
         {
-          "id": "08-2",
+          "id": "09-2",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -1165,9 +1302,8 @@
       ]
     },
     {
-      "id": "09",
+      "id": "10",
       "type": "row",
-      "checked": false,
       "values": [
         {
           "name": "factory",
@@ -1176,17 +1312,17 @@
         },
         {
           "name": "sales-area",
-          "value": "Бангладеш",
+          "value": "Дальнее зарубежье",
           "type": "string"
         },
         {
           "name": "conditions",
-          "value": "YYY",
+          "value": "СТР",
           "type": "string"
         },
         {
           "name": "transition",
-          "value": "Дрогобычский НПЗ",
+          "value": "ст. Васильева",
           "type": "string"
         },
         {
@@ -1207,13 +1343,12 @@
       ],
       "subRows": [
         {
-          "id": "09-1",
+          "id": "10-1",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
-              "value": "Масло Л-СУПЕР, 15/440, СЕ-4/5С; к. 5л.",
+              "value": "Масло готовое, 5/40, к. 1л.",
               "type": "string"
             },
             {
@@ -1237,9 +1372,8 @@
           ]
         },
         {
-          "id": "09-2",
+          "id": "10-2",
           "type": "sub-row",
-          "checked": false,
           "values": [
             {
               "name": "product",
@@ -1262,96 +1396,6 @@
               "name": "remainder",
               "title": "Остаток",
               "value": 61,
-              "type": "number"
-            }
-          ]
-        },
-        {
-          "id": "09-3",
-          "type": "sub-row",
-          "checked": false,
-          "values": [
-            {
-              "name": "product",
-              "value": "Масло готовое 1040, к. 1л.",
-              "type": "string"
-            },
-            {
-              "name": "volume",
-              "title": "Объем",
-              "value": 15.3816,
-              "type": "number"
-            },
-            {
-              "name": "distributed",
-              "title": "Распределено",
-              "value": 0,
-              "type": "number"
-            },
-            {
-              "name": "remainder",
-              "title": "Остаток",
-              "value": 15.3816,
-              "type": "number"
-            }
-          ]
-        },
-        {
-          "id": "09-4",
-          "type": "sub-row",
-          "checked": false,
-          "values": [
-            {
-              "name": "product",
-              "value": "Масло готовое, 5/40, к. 1л.",
-              "type": "string"
-            },
-            {
-              "name": "volume",
-              "title": "Объем",
-              "value": 10,
-              "type": "number"
-            },
-            {
-              "name": "distributed",
-              "title": "Распределено",
-              "value": 0,
-              "type": "number"
-            },
-            {
-              "name": "remainder",
-              "title": "Остаток",
-              "value": 10,
-              "type": "number"
-            }
-          ]
-        },
-        {
-          "id": "09-5",
-          "type": "sub-row",
-          "checked": false,
-          "values": [
-            {
-              "name": "product",
-              "value": "Масло готовое 1040, к. 1л.",
-              "type": "string"
-            },
-            {
-              "name": "volume",
-              "title": "Объем",
-              "value": 69.225,
-              "type": "number"
-            },
-            {
-              "name": "distributed",
-              "title": "Распределено",
-              "value": 0,
-              "type": "number"
-            },
-            {
-              "name": "remainder",
-              "title": "Остаток",
-              "value": 69.225,
               "type": "number"
             }
           ]
