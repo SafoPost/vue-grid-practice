@@ -4,7 +4,7 @@
       <data-columns
           :columns="arrColumns"
           :sortValue="sortQuery"
-          @update="requestSortedRows"/>
+          @update="$emit('changeSort', sortQuery)"/>
     </tr>
     <tr
         v-for="row in arrRowsWithCheck"
@@ -39,9 +39,19 @@ export default {
     DataColumns, DataRows
   },
   props: {
-    data: {
-      type: Object,
+    dataColumns: {
+      type: Array,
       required: true
+    },
+    dataRows: {
+      type: Array,
+      required: true
+    },
+    sortQuery: {
+      type: String
+    },
+    sortedRows: {
+      type: String
     }
   },
   methods: {
@@ -51,14 +61,13 @@ export default {
     }
   },
   setup(props) {
-    const { dataColumns, arrColumns, withCheck } = useDataColumns(props.data.columns, true)
-    const { sortQuery, sortedRows, requestSortedRows } = useSortByColumns(props.data.rows)
-    const { arrRows } = useDataRows(sortedRows, dataColumns, withCheck)
+    const { dataColumns, arrColumns, withCheck } = useDataColumns(props.dataColumns, true)
+    // const { sortQuery, sortedRows, requestSortedRows } = useSortByColumns(props.dataRows)
+    const { arrRows } = useDataRows(props.dataRows, dataColumns, withCheck)
     const { checkVal, rowId, arrRowsWithCheck } = useToggleCheckRow(arrRows)
 
     return {
       dataColumns, arrColumns, withCheck,
-      sortQuery, sortedRows, requestSortedRows,
       arrRows,
       checkVal, rowId, arrRowsWithCheck
     }

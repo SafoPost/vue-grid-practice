@@ -3,11 +3,10 @@ import {ref, computed} from "vue";
 export function useDataRows(dataRows, dataColumns, withCheck) {
     const emptyCell = ref({name: 'empty', value: ''})
     const checkboxCell = ref({name: 'check', value: ''})
-
     const arrRows = computed(() => {
         const rows = []
 
-        dataRows.value.forEach(item => {
+        dataRows.forEach(item => {
             const orderedItem = []
 
             for (let i = 0; i < dataColumns.length; i++) {

@@ -3,18 +3,18 @@
     <h1>Таблица с данными из шаблона</h1>
     <div class="monitor-panel">
       <div class="panel-group">
-        <grid-radio-filter
-            :v-model="filterPack"
-            :forId="fastFilter1"
-            :filterName="filterPackName">
-          Фасовка
-        </grid-radio-filter>
-        <grid-radio-filter
-            :v-model="filterPack"
-            :forId="fastFilter2"
-            :filterName="filterPackName">
-          Налив
-        </grid-radio-filter>
+<!--        <grid-radio-filter-->
+<!--            :v-model="filterPack"-->
+<!--            :forId="fastFilter1"-->
+<!--            :filterName="filterPackName">-->
+<!--          Фасовка-->
+<!--        </grid-radio-filter>-->
+<!--        <grid-radio-filter-->
+<!--            :v-model="filterPack"-->
+<!--            :forId="fastFilter2"-->
+<!--            :filterName="filterPackName">-->
+<!--          Налив-->
+<!--        </grid-radio-filter>-->
 <!--        <grid-year-input-->
 <!--          v-model="filterYear">-->
 <!--          Год-->
@@ -37,8 +37,10 @@
 <!--          placeholder="Поиск..."/>-->
     </div>
     <data-grid
-      :data="data"
-
+      :dataColumns="data.columns"
+      :dataRows="data.rows"
+      :sortQuery="sortQuery"
+      :sortedRows="sortedRows"
       v-if="!isDataLoading"
     />
     <div v-else>Идет загрузка данных...</div>
@@ -73,6 +75,7 @@
 import DataGrid from "../components/DataGrid";
 import {useDataGrid} from "../hooks/useDataGrid";
 import {usePaginationGrid} from "../hooks/usePaginationGrid";
+import {useSortByColumns} from "../hooks/useSortByColumns";
 import ButtonPrimary from "../components/UI/ButtonPrimary";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
@@ -125,18 +128,21 @@ export default {
     changeLimit(currentLimit) {
       console.log('currentLimit', currentLimit)
       this.limit = currentLimit
+    },
+    changeSort(sort) {
+      console.log(sort)
+      this.requestSortedRows()
     }
   },
   setup(props) {
-    const { data, isDataLoading } = useDataGrid()
-    const { currentRows, currentData, totalRows, totalPages, firstRow, lastRow, limit, page } = usePaginationGrid(data)
+    const { data, isDataLoading, limit, page } = useDataGrid()
+    const { totalRows, totalPages, firstRow, lastRow } = usePaginationGrid(data.value.rows, page, limit)
+    const { sortQuery, sortedRows, requestSortedRows } = useSortByColumns(data.value.rows)
 
     return {
-      data, isDataLoading,
-      currentRows, currentData,
-      totalRows, totalPages,
-      firstRow, lastRow,
-      limit, page
+      data, isDataLoading, limit, page,
+      totalRows, totalPages, firstRow, lastRow,
+      sortQuery, sortedRows, requestSortedRows,
     }
   },
   watch: {

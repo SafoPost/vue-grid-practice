@@ -33,12 +33,6 @@ export function usePosts() {
             alert('Ошибка!');
         } finally {
             isPostsLoading.value = false;
-            console.log('page', page.value)
-            console.log('limit', limit.value)
-            console.log('totalPages', totalPages.value)
-            console.log('firstPost', firstPost.value)
-            console.log('lastPost', lastPost.value)
-
         }
     }
 

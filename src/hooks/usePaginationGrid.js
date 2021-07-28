@@ -1,38 +1,17 @@
-import axios from "axios";
-import {computed, onMounted, ref} from "vue";
-import templateData from '../../static/dataManyRows.json';
-import _ from "lodash";
+import {computed, ref} from "vue";
 
-export function usePaginationGrid(data) {
-    const limit = ref(5)
-    const page = ref(1)
+export function usePaginationGrid(rows, page, limit) {
 
-    // console.log(data.value)
+    let count = limit.value * (page.value - 1)
+    rows.forEach((el, i) => el.ordinalNumber = count + i + 1 )
 
-    // data.value.rows.forEach((el, i) => el.ordinalNumber = i + 1)
-
-    const currentRows = computed(() => {
-        return _.chunk(data.value.rows, limit.value)
-    })
-    const currentData = computed(() => {
-        return data.value.rows = currentRows.value[page.value]
-    })
-    const totalRows = computed(() => {
-        return data.value.rows.length
-    })
-    const totalPages = computed(() => {
-        return Math.ceil(totalRows.value / limit.value)
-    })
-    const firstRow = computed(() => {
-        return data.value.rows[0].ordinalNumber
-    })
-    const lastRow = computed(() => {
-        return data.value.rows[limit.value - 1].ordinalNumber
-    })
-
+    const totalRows = computed(() => rows.length || 0 )
+    const totalPages = computed(() => Math.ceil(totalRows.value / limit.value) || 0 )
+    const firstRow = computed(() => rows[0].ordinalNumber || 0 )
+    const lastRow = computed(() => rows[rows.length - 1].ordinalNumber || 0 )
 
     return {
-        currentRows, currentData, totalRows, totalPages,
-        firstRow, lastRow, limit, page
+        totalRows, totalPages,
+        firstRow, lastRow
     }
 }
